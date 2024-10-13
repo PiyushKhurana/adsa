@@ -25,14 +25,19 @@ public class WeightedGraphGenerator {
         int[][] graph = generateConnectedGraph(n, minWeight, maxWeight);
         long time_2 = System.currentTimeMillis();
         long difference = time_2 - time_1;
+
+        System.out.println("Graph generation time:");
+
         System.out.println( difference + " milliseconds" );
         System.out.println( difference/1000 + " seconds" );
 
+        System.out.println("----------------------------------");
+
         saveToFile(graph);
-        System.out.println("--------PRINTING PRINTING PRINTING-------------------");
+
         // printGraph(graph);
 
-        int[][] rgraph = readFromFile();
+        int[][] rgraph = readFromFile(graph.length);
         for(int i = 0;i<n;i++){
             for (int j = 0;j<n;j++){
                 if(graph[i][j] != rgraph[i][j]){
@@ -55,7 +60,7 @@ public class WeightedGraphGenerator {
     private static void saveToFile(int[][] graph) throws IOException {
         StringBuilder builder = new StringBuilder();
         //Date date = new Date();
-        String date = "TestMat1";
+        String date = "SavedGraphs/Graph_"+graph.length;
         for(int i = 0; i < graph.length; i++)//for each row
         {
             for(int j = 0; j < graph.length; j++)//for each column
@@ -71,8 +76,8 @@ public class WeightedGraphGenerator {
         writer.close();
     }
 
-    private static int[][] readFromFile() throws IOException {
-        String savedGameFile = "/Users/piyush/TestMat1.txt";
+    private static int[][] readFromFile(int vertices) throws IOException {
+        String savedGameFile = "/Users/piyush/"+"SavedGraphs/Graph_"+vertices+".txt";
 
         BufferedReader reader;
         reader = new BufferedReader(new FileReader(savedGameFile));
