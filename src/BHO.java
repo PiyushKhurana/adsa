@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -63,5 +65,39 @@ public class BHO {
         System.out.println("PriorityQueue: Binomial Min Heap");
         System.out.println("Vertices: "+graph.length);
         System.out.println("Execution time: " + difference+" milliseconds " +"( "+ difference/1000 + " seconds )" );
+    }
+
+    private static int[][] readFromFile(int vertices) throws IOException {
+        String savedGameFile = "/Users/piyush/"+"SavedGraphs/Graph_"+vertices+".txt";
+
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader(savedGameFile));
+
+        int lines = 0;
+        while (reader.readLine() != null) lines++;
+        reader.close();
+
+        reader = new BufferedReader(new FileReader(savedGameFile));
+
+        int[][] graph = new int[lines][lines];
+
+
+        String line = "";
+        int row = 0;
+        while((line = reader.readLine()) != null)
+        {
+            String[] cols = line.split(","); //note that if you have used space as separator you have to split on " "
+            int col = 0;
+            for(String  c : cols)
+            {
+                graph[row][col] = Integer.parseInt(c);
+                col++;
+            }
+            row++;
+        }
+        reader.close();
+
+        //  printGraph(graph);
+        return graph;
     }
 }
