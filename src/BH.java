@@ -17,7 +17,9 @@ public class BH {
 //                {14, 0, 2, 0, 9, 0}
 //        };
 
-        int[][] graph = readFromFile(10000);
+        int[][] graph = readFromFile(10);
+
+        long time_1 = System.currentTimeMillis();
 
         int source = 0;
 
@@ -48,6 +50,15 @@ public class BH {
                 }
             }
         }
+
+        long time_2 = System.currentTimeMillis();
+        long difference = time_2 - time_1;
+
+        System.out.println("-------------Dijkstra Algorithm--------------");
+        System.out.println("PriorityQueue: Binary Min Heap");
+        System.out.println("Vertices: "+graph.length);
+        System.out.println("Execution time: " + difference+" milliseconds " +"( "+ difference/1000 + " seconds )" );
+
     }
 
     private static int[][] readFromFile(int vertices) throws IOException {
