@@ -26,12 +26,7 @@ public class WeightedGraphGenerator {
         long time_2 = System.currentTimeMillis();
         long difference = time_2 - time_1;
 
-        System.out.println("Graph generation time:");
-
-        System.out.println( difference + " milliseconds" );
-        System.out.println( difference/1000 + " seconds" );
-
-        System.out.println("----------------------------------");
+        System.out.println("Graph Generation time: " + difference+" milliseconds " +"( "+ difference/1000 + " seconds )" );
 
         saveToFile(graph);
 
