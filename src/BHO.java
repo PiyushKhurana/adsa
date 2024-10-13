@@ -53,13 +53,15 @@ public class BHO {
                 }
             }
 
-            long time_2 = System.currentTimeMillis();
-            long difference = time_2 - time_1;
 
-            System.out.println("-------------Dijkstra Algorithm--------------");
-            System.out.println("PriorityQueue: Binomial Min Heap");
-            System.out.println("Vertices: "+graph.length);
-            System.out.println("Execution time: " + difference+" milliseconds " +"( "+ difference/1000 + " seconds )" );
+
+
         }
+        long time_2 = System.currentTimeMillis();
+        long difference = time_2 - time_1;
+        System.out.println("-------------Dijkstra Algorithm--------------");
+        System.out.println("PriorityQueue: Binomial Min Heap");
+        System.out.println("Vertices: "+graph.length);
+        System.out.println("Execution time: " + difference+" milliseconds " +"( "+ difference/1000 + " seconds )" );
     }
 }
