@@ -23,6 +23,8 @@ public class BHF {
 //            System.out.println("Vertex " + i + " : " + distances[i]);
 //        }
 
+        long time_1 = System.currentTimeMillis();
+
         int source = 0;
 
         FibonacciHeap pq = new FibonacciHeap();
@@ -51,6 +53,14 @@ public class BHF {
                     pq.insert(rem.key+graph[rem.vertex][neighbor], rem.psf + neighbor,neighbor);
                 }
             }
+
+            long time_2 = System.currentTimeMillis();
+            long difference = time_2 - time_1;
+
+            System.out.println("-------------Dijkstra Algorithm--------------");
+            System.out.println("PriorityQueue: Fibonacci Min Heap");
+            System.out.println("Vertices: "+graph.length);
+            System.out.println("Execution time: " + difference+" milliseconds " +"( "+ difference/1000 + " seconds )" );
         }
     }
 }
